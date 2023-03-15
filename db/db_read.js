@@ -1,11 +1,11 @@
 const db = require("./db_connection");
 
 // Execute query, print results or error 
-db.execute('SELECT 1 + 1 AS solution', 
+db.execute('SELECT * from assignments', 
     (error, results) => {
         if (error)
             throw error;
-        console.log(results);
+        console.log(Object.prototype.toString.call(results[0].dueDate));
     }
 );
 
