@@ -15,14 +15,14 @@ app.get( "/", ( req, res ) => {
     res.sendFile( __dirname + "/views/index.html" );
 } );
 
-// define a route for the stuff inventory page
-app.get( "/stuff", ( req, res ) => {
-    res.sendFile( __dirname + "/views/stuff.html" );
+// define a route for the assignment list page
+app.get( "/assignments", ( req, res ) => {
+    res.sendFile( __dirname + "/views/assignments.html" );
 } );
 
-// define a route for the item detail page
-app.get( "/stuff/item", ( req, res ) => {
-    res.sendFile( __dirname + "/views/item.html" );
+// define a route for the assignment detail page
+app.get( "/assignments/detail", ( req, res ) => {
+    res.sendFile( __dirname + "/views/detail.html" );
 } );
 
 // start the server
