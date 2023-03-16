@@ -1,27 +1,15 @@
 // (Re)Sets up the database, including a little bit of sample data
 const db = require("./db_connection");
 
-/**** Drop existing table, if any ****/
+/**** This version of the db_init.js file assumes the table already exists, designed in a tool like MySQL Workbench, and you don't want to recreate it ****/
 
-const drop_assignments_table_sql = "DROP TABLE IF EXISTS assignments;"
+/**** Delete *CONTENTS OF* existing assignments table (but not the table itself) ****/
 
-db.execute(drop_assignments_table_sql);
+const delete_assignments_table_sql = "DELETE FROM assignments;"
 
-/**** Create "assignments" table (again)  ****/
+db.execute(delete_assignments_table_sql);
 
-const create_assignments_table_sql = `
-    CREATE TABLE assignments (
-        id INT NOT NULL AUTO_INCREMENT,
-        title VARCHAR(45) NOT NULL,
-        priority INT NULL,
-        subject VARCHAR(45) NOT NULL,
-        dueDate DATE NULL,
-        description VARCHAR(150) NULL,
-        PRIMARY KEY (id)
-    );
-`
-
-db.execute(create_assignments_table_sql);
+/**** Create some sample items ****/
 
 /**** Create some sample assignments ****/
 
@@ -58,14 +46,14 @@ db.execute(read_assignments_sql,
 
 db.end();
 
+
 /*
 
 // Alternatively, instead of putting SQL in string literals, read the SQL from files using the "fs" package.
 // Put this code at the top, and remove all the SQL string literals defined through the file.
 const fs = require("fs");
 
-const drop_assignments_table_sql = fs.readFileSync(__dirname + "/db/queries/init/drop_assignments_table.sql", { encoding: "UTF-8" });
-const create_assignments_table_sql = fs.readFileSync(__dirname + "/db/queries/init/create_assignments_table.sql", { encoding: "UTF-8" });
+const delete_assignments_table_sql = fs.readFileSync(__dirname + "/db/queries/init/delete_assignments_table.sql", { encoding: "UTF-8" });
 const insert_assignment_sql = fs.readFileSync(__dirname + "/db/queries/init/insert_assignment.sql", { encoding: "UTF-8" });
 const read_assignments_sql = fs.readFileSync(__dirname + "/db/queries/init/read_assignments.sql", { encoding: "UTF-8" });
 
