@@ -1,5 +1,5 @@
 -- Insert new row into assignments table
-    INSERT INTO assignments 
-        (title, priority, subject, duedate, description) 
-    VALUES 
-        (?, ?, ?, ?, ? );
+INSERT INTO assignments 
+    (title, priority, subjectId, dueDate, description) 
+VALUES 
+    (?, ?, ?, ?, ? );
