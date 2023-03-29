@@ -2,6 +2,6 @@
 SELECT *
 FROM assignments
 JOIN subjects
-    ON assignments.subjectId = subjects.id
+    ON assignments.subjectId = subjects.subjectId
 ORDER BY
     assignments.assignmentId;
