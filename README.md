@@ -215,7 +215,7 @@ const db = require("./db_connection");
 
 
 ### (3.2.1) DROP the existing tables
-First, we want to run some SQL that deletes the old tables if they already exist. Add this code to `db_create.js`:
+First, we want to run some SQL that deletes the old tables if they already exist. Add this code to `db_create.js`. You may need to modify the code to reflect your own tables:
 
 ```js
 /**** Drop existing tables, if any ****/
