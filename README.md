@@ -427,7 +427,7 @@ VALUES
 
 The `execute()` method then offers a handy way to replace those `?` placeholds with actual values before executing: simply pass an array of values as the optional second parameter, and each value will be used to replace a `?`. This is a technique called **"prepared statements"**, and it allows us to re-use general queries.
 
-Add this code to `db_init.js` to perform the queries above using prepared statements:
+Add this code to `db_insert_sample_data.js` to perform the queries above using prepared statements:
 
 ```js
 /**** Create some sample subjects and assignments ****/
